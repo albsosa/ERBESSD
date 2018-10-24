@@ -12,15 +12,43 @@ import infoProductos from '../datos/datos.json'
 class Router extends Component {
     
     state = { 
-        productos : []
+        productos : [],
+        terminoBusqueda : ''
      }
      componentWillMount(){
          this.setState({
              productos: infoProductos
          })
      }
-    render() { 
+     busquedaProducto = (busqueda) => {
+         //para que la busqueda empiece en el tercer caracter 
+         if(busqueda.length > 3){
+             this.setState({
+                 terminoBusqueda : busqueda
+             })   
+         }
+         else {
+            this.setState({
+                terminoBusqueda : ''
+            })  
+         }
+     }
+    render() {
+        let productos = [...this.state.productos];
+        let busqueda = this.state.terminoBusqueda;
+        let resultado;
+
+        if(busqueda !== ''){
+            resultado= productos.filter(producto =>(
+                //Cuando el indexof no encuetra nada retorna -1 y con esa condicion nos va entregar todo el resultado excepto -1
+                producto.nombre.toLowerCase().indexOf(busqueda.toLowerCase()) !== -1
+            ))
+        }
+        else {
+           resultado = productos; 
+        }
         return ( 
+
             <BrowserRouter>
                 <div className="contenedor">
                     <Header
@@ -31,13 +59,15 @@ class Router extends Component {
                     <Switch>
                         <Route exact path="/" render={() => (
                             <Productos 
-                                productos={this.state.productos}
+                                productos={resultado}
+                                busquedaProducto={this.busquedaProducto}
                             />
                         )} />
                         <Route exact path="/nosotros" component={Nosotros} />
                         <Route exact path="/productos" render={() => (
                             <Productos 
-                                productos={this.state.productos}
+                                productos={resultado}
+                                busquedaProducto={this.busquedaProducto}
                             />
                         )} />
                         <Route exact path="/producto/:productoId" render={(props) => {
