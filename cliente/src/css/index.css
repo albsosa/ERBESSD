@@ -1,0 +1,59 @@
+html {
+  height: 100%;
+  box-sizing: border-box;
+  
+}
+*, *:before, *:after {
+box-sizing: inherit;
+}
+body {
+  font-family: arial,helvetica, sans-serif;
+  height: 100%;
+  margin: 0;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#152125+0,152125+47,fff+100;Pink+3D+%233 */
+  background: #152125; /* Old browsers */
+  background: -moz-linear-gradient(top, #152125 0%, #152125 47%, #fff 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #152125 0%,#152125 47%,#fff 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #152125 0%,#152125 47%,#fff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#152125', endColorstr='#fff',GradientType=0 );
+  margin-bottom: 10rem;
+}
+header {
+text-align: center;
+padding: 20px 0;
+}
+div.contenedor {
+  max-width: 800px;
+  width: 95%;
+  margin: 0 auto;
+}
+div.hero img {
+  width: 100%;
+}
+h2 {
+text-align: center;
+color: white;
+text-transform: uppercase;
+}
+
+
+
+.contenedor-boton {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: #ffffff;
+}
+
+.contenedor-boton .boton {
+  padding: .5rem 3rem;
+  background-color: #ffd742;
+  border-radius: 10px;
+  color: black;
+  text-transform: uppercase;
+}
+.contenedor-boton .boton:hover {
+  cursor: pointer;
+}
